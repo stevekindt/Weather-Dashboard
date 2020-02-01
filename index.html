@@ -5,8 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Weather Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/6c963a99f5.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    
+        <!-- Header -->
+        <div class="bg-info pt-2 pb-2"> 
+            <div class="container">
+                <h1 class="text-center text-white">Weather Dashboard</h1>
+            </div>
+        </div>
+
+          <!-- Main Container -->
+  <div class="container-fluid"> 
+
+    <!-- Search Row -->
+    <div class="row"> 
+
+        <!-- Search Column -->
+        <div class="col-lg-3 bg-light pt-3 pb-3"> 
+
+            <h3 class="text-secondary">Search for a City:</h3>
+
+            <!-- Search Input -->
+            <div class="input-group mb-3"> 
+                <input id="searchCity" type="text" class="form-control" placeholder="Type a city name" class="input-group-append">
+                <button id="searchBtn" class="btn btn-primary submit" type="button" class="input-group-append"><i class="fas fa-search"></i></button>
+            </div> 
+
+            <!-- Saved Cities -->
+            <div class="card"> 
+                <ul class="list-group"></ul>
+            </div> 
+        </div> 
+
+        <!-- Current City Column -->
+        <div class="col-lg-9"> 
+            <div id="currentCity" class="mt-6"></div>
+        </div> 
+
+    </div> 
+     <!-- 5 Day Forecast Container -->
+     <div class="mt-4 col-md-12"> 
+
+        <h3 id="forecastHeader" class="mt-6 hide text-secondary">5-Day Forecast:</h3>
+
+        <!-- Forecast Row -->
+        <div id="forecastRow" class="row"></div> 
+
+    </div> 
+
+</div> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
