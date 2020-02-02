@@ -11,7 +11,7 @@ $(document).ready(function() {
       makeList(pastCities[i]);
     }
   }
-
+  
   // Makes list of previously searched cities and saves to local storage
   function makeList(city) {
     let listItem = $("<li>")
@@ -199,7 +199,7 @@ $(document).ready(function() {
 
             cardBody.append(cityDate, image, temperature, humidity);
             card.append(cardBody);
-            $("#forecastRow").append(card);
+            $("#forecastRow").append(card).addClass(bg-info);
             dayIndex++;
           }
         }
