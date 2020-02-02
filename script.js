@@ -12,23 +12,13 @@ $(document).ready(function() {
     }
   }
 
-  // Search button onclick event
-  $("#searchBtn").on("click", function(event) {
-    event.preventDefault();
-
-    $("#forecastHeader").addClass("show");
-
-    // User search input
-    city = $("#searchCity").val();
-
-    // Clears search input
-    $("#searchCity").val("");
-    makeList(city);
-    saveLocalStorage(city);
-
-    getWeather(city);
-    getCurrentForecast(city);
-  });
+  // Makes list of previously searched cities and saves to local storage
+  function makeList(city) {
+    let listItem = $("<li>")
+      .addClass("list-group-item")
+      .text(city);
+    $(".list").append(listItem);
+  };
 
   // Get weather for current city
   function getWeather(city) {
@@ -52,25 +42,35 @@ $(document).ready(function() {
     });
   };
 
-  // Makes list of previously searched cities and saves to local storage
-  function makeList(city) {
-    let listItem = $("<li>")
-      .addClass("list-group-item")
-      .text(city);
-    $(".list").append(listItem);
-  };
+  // Search button onclick event
+  $("#searchBtn").on("click", function(event) {
+    event.preventDefault();
+
+    $("#forecastHeader").addClass("show");
+
+    // User search input
+    city = $("#searchCity").val();
+
+    // Clears search input
+    $("#searchCity").val("");
+    makeList(city);
+    saveLocalStorage(city);
+
+    getWeather(city);
+    getCurrentForecast(city);
+  });
 
   function saveLocalStorage(newCity) {
-    var oldCityList = JSON.parse(localStorage.getItem("city-list"));
-    if (!oldCityList) {
+    var pastCityList = JSON.parse(localStorage.getItem("city-grouping"));
+    if (!pastCityList) {
       var cityList = [];
       cityList.push(newCity);
       var strList = JSON.stringify(cityList);
-      localStorage.setItem("city-list", strList);
+      localStorage.setItem("city-grouping", strList);
     } else {
-      oldCityList.push(newCity);
-      var strList = JSON.stringify(oldCityList);
-      localStorage.setItem("city-list", strList);
+      pastCityList.push(newCity);
+      var strList = JSON.stringify(pastCityList);
+      localStorage.setItem("city-grouping", strList);
     }
   };
 
@@ -152,6 +152,7 @@ $(document).ready(function() {
           .html(Math.round(data.value*10)/10);
         $(uvIndex).html("UV Index: ");
         $(uvIndex).append(uvSpan);
+        
 // Styles UV Index span according to value
         if (data.value <= 4) {
           $(".uv-span").css("background-color", "green");
