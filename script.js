@@ -11,7 +11,7 @@ $(document).ready(function() {
       makeList(pastCities[i]);
     }
   }
-  
+
   // Makes list of previously searched cities and saves to local storage
   function makeList(city) {
     let listItem = $("<li>")
@@ -101,7 +101,7 @@ $(document).ready(function() {
     var temperature = $("<p>")
       .addClass("card-text current-temp text-secondary")
       .text("Temperature: " + tempF + " °F");
-    var tempFeel = $("<p>")
+    var feelLike = $("<p>")
       .addClass("card-text text-secondary")
       .text("Feels Like: " + feelsLike + " °F");
     var humidity = $("<p>")
@@ -117,7 +117,7 @@ $(document).ready(function() {
 
     // Adds current conditions to city card
     city.append(cityDate, image);
-    cardBody.append(city, temperature, tempFeel, humidity, wind, uvIndex);
+    cardBody.append(city, temperature, feelsLike, humidity, wind, uvIndex);
     card.append(cardBody);
     $("#currentCity").append(card);
   };
