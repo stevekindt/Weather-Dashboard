@@ -7,3 +7,5 @@ Previously-searched cities are maintained in local storage and accessed via a se
 
 This application utilizes AJAX and moment.js
 
+Link to GitHub Repository: https://github.com/stevekindt/Weather-Dashboard
+Link to deployed application: https://stevekindt.github.io/Weather-Dashboard/
